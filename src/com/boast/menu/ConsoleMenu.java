@@ -8,7 +8,6 @@
 package com.boast.menu;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 import com.boast.buyer.*;
 
@@ -109,25 +108,19 @@ public class ConsoleMenu implements MenuInterface {
         }
     }
 
-    public void sortByAddress(Buyer[] buyers){
-        Arrays.sort(buyers, new Comparator<Buyer>() {
-            @Override
-            public int compare(Buyer o1, Buyer o2) {
-                String address1 = o1.getAddress();
-                String address2 = o2.getAddress();
-                return address1.compareTo(address2);
-            }
+    private <T extends Buyer> void sortByAddress(T[] buyers){
+        Arrays.sort(buyers, (o1, o2) -> {
+            String address1 = o1.getAddress();
+            String address2 = o2.getAddress();
+            return address1.compareTo(address2);
         });
     }
 
-    public void sortByFirstName(Buyer[] buyers){
-        Arrays.sort(buyers, new Comparator<Buyer>() {
-            @Override
-            public int compare(Buyer o1, Buyer o2) {
-                String name1 = o1.getFirstName();
-                String name2 = o2.getFirstName();
-                return name1.compareTo(name2);
-            }
+    private <T extends Buyer> void sortByFirstName(T[] buyers){
+        Arrays.sort(buyers, (o1, o2) -> {
+            String name1 = o1.getFirstName();
+            String name2 = o2.getFirstName();
+            return name1.compareTo(name2);
         });
     }
 }
