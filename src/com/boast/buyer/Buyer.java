@@ -1,5 +1,5 @@
 /*
- * Buyer.java 28/07/2017
+ * Buyer.java 24/07/2017
  *
  * Created by Bondarenko Oleh
  */
@@ -7,7 +7,6 @@
 
 package com.boast.buyer;
 
-import java.util.Random;
 import com.boast.random.RandomString;
 
 public class Buyer {
@@ -23,8 +22,8 @@ public class Buyer {
         secondName = RandomString.getSecondName();
         thirdName = RandomString.getThirdName();
         address = RandomString.getAddress();
-        creditCardNumber = Math.abs(new Random().nextLong()) % 9999_9999_9999_9999L; //1000
-        bankAccountNumber = Math.abs(new Random().nextLong()) % 999_999_999_999_999_999L;
+        creditCardNumber = (long) (Math.random() * 9999_9999_9999_9999L); //1000
+        bankAccountNumber = (long) (Math.random() * 999_999_999_999_999_999L);
     }
 
     public String getFirstName() {

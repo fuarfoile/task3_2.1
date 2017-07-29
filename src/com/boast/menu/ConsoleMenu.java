@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import com.boast.buyer.*;
 
-public class ConsoleMenu implements MenuInterface {
+public class ConsoleMenu {
 
     public ConsoleMenu() {
         help();
@@ -76,13 +76,13 @@ public class ConsoleMenu implements MenuInterface {
         System.out.println("exit");
     }
 
-    public void showAll(Buyer[] buyers) {
+    private void showAll(Buyer[] buyers) {
         for (Buyer buyer : buyers) {
             System.out.println(buyer);
         }
     }
 
-    public void showSurnamesStartFrom(Buyer[] buyers, String start) {
+    private void showSurnamesStartFrom(Buyer[] buyers, String start) {
         boolean nonFlag = true;
         for (Buyer buyer : buyers) {
             if(buyer.getSecondName().startsWith(start)) {
@@ -95,7 +95,7 @@ public class ConsoleMenu implements MenuInterface {
         }
     }
 
-    public void showCardsFromDiapason(Buyer[] buyers, long start, long end) {
+    private void showCardsFromDiapason(Buyer[] buyers, long start, long end) {
         boolean nonFlag = true;
         for (Buyer buyer : buyers) {
             if(buyer.getCreditCardNumber() >= start && buyer.getCreditCardNumber() <= end) {
